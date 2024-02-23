@@ -1,4 +1,6 @@
-const express = require("express")
+const express = require("express");
+const { ErrorHandler } = require("../Utils/ErrorHandler");
+const { NotFoundHandler } = require("../Utils/NotFoundHandler");
 const app = express()
 const port = 3000;
 
@@ -30,16 +32,12 @@ app.get("/any", (req, res, next) => {
 
 
 // اگر روت مورد نظر پیدا نشه این میدلویر اجرا میشه
-app.use((req, res, next) => {
-    res.status(404).send({message: "route not exist"})
-})
+app.use(NotFoundHandler)
 
 
 // اگر برنامه به ارور بخوره این میدلویر اجرا میشه
 // برای انقال اررو به این میدلویر میتونیم تو قسمت روت از ترای کچ هم استفاده کنیم و تو قیمت کچ ارور رو به نکست به این میدلویر پاس بدیم
-app.use((err, req, res, next) => {
-    if (err) res.status(res.statusCode).send({error: err.message || 500})
-})
+app.use(ErrorHandler)
 
 
 // میتونیم برای تمام این میدلویر ها یه یوتیلز بنویسیم تا هرجا که خواستیم بتونیم داشون بزنیم

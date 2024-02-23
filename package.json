@@ -1,0 +1,22 @@
+{
+  "name": "botostart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev_route": "nodemon 001_route/index",
+    "dev_queryString": "nodemon 002_queryString/index",
+    "dev_body": "nodemon 003_body/index",
+    "dev_middleware": "nodemon 004_middleware/index",
+    "dev_error": "nodemon 005_error/index",
+    "dev_mongodb": "nodemon 006_mongoose/index"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.1.3"
+  }
+}
